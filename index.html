@@ -1,0 +1,1513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1 — Storytelling | Diego Armando Beltrán Arreola</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600&family=Libre+Franklin:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* Institutional base */
+            --uvm-red: #B92C32;
+            --uvm-red-deep: #8E1F25;
+            --uvm-red-soft: #E9CDCE;
+            --ink: #1A1714;          /* near-black, warm */
+            --ink-2: #423B33;        /* secondary ink */
+            --ink-3: #6E665C;        /* muted */
+            --paper: #F7F3EC;        /* warm off-white */
+            --paper-2: #EFEAE0;      /* card paper */
+            --paper-3: #E5DECF;      /* deeper paper / rules */
+            --line: #D8CFBF;         /* hairline on paper */
+            /* Brand accents */
+            --apple-ink: #111113;
+            --apple-mist: #F2F2F4;
+            --apple-line: #DADADE;
+            --xiaomi: #FF6900;
+            --xiaomi-deep: #C94E00;
+            --xiaomi-mist: #FFF1E6;
+            /* Semantic */
+            --pos: #1F7A55;
+            --pos-soft: #E2F0E8;
+            --neg: #B0322B;
+            --neg-soft: #F6E4E0;
+            --warn: #B6791F;
+            --warn-soft: #F6EAD2;
+
+            --serif: 'Fraunces', Georgia, 'Times New Roman', serif;
+            --sans: 'Libre Franklin', -apple-system, BlinkMacSystemFont, sans-serif;
+            --shadow-sm: 0 1px 2px rgba(26,23,20,.05), 0 2px 6px rgba(26,23,20,.05);
+            --shadow-md: 0 10px 30px -12px rgba(26,23,20,.28), 0 2px 8px rgba(26,23,20,.06);
+            --shadow-lg: 0 30px 60px -22px rgba(26,23,20,.40), 0 6px 16px rgba(26,23,20,.08);
+        }
+
+        /* ===== Base canvas — fills entire viewport, no bars ===== */
+        *, *::before, *::after { box-sizing: border-box; }
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: var(--paper);
+        }
+        .reveal {
+            font-family: var(--sans);
+            font-size: clamp(18px, 2.5vh, 28px);
+            color: var(--ink);
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+        }
+        .reveal .slides { text-align: left; }
+
+        .reveal, .reveal .slides {
+            width: 100% !important;
+            height: 100% !important;
+            top: 0 !important;
+            left: 0 !important;
+            transform: none !important;
+        }
+        .reveal .slides > section,
+        .reveal .slides > section > section {
+            padding: 0;
+            width: 100vw !important;
+            height: 100vh !important;
+            min-height: 100vh;
+        }
+
+        /* Paper substrate behind every standard slide.
+           We wrap slide content in .sheet to get the editorial frame. */
+        .sheet {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            padding: 5.5vh 5.5vw 6vh;
+            background:
+                radial-gradient(120% 80% at 0% 0%, rgba(255,255,255,.55) 0%, rgba(255,255,255,0) 42%),
+                var(--paper);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        /* faint paper grain */
+        .sheet::after {
+            content: "";
+            position: absolute; inset: 0;
+            background-image:
+                repeating-linear-gradient(0deg, rgba(26,23,20,.018) 0 1px, transparent 1px 3px);
+            opacity: .5;
+            pointer-events: none;
+            mix-blend-mode: multiply;
+        }
+
+        /* ===== Typography ===== */
+        .reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+            font-family: var(--serif);
+            color: var(--ink);
+            margin: 0;
+            text-transform: none;
+            line-height: 1.04;
+            letter-spacing: -0.01em;
+            font-weight: 600;
+        }
+        .reveal h1 { font-size: 2.5em; font-weight: 600; }
+        .reveal h2 {
+            font-size: 1.92em;
+            font-weight: 600;
+            letter-spacing: -0.018em;
+        }
+        .reveal h3 {
+            font-size: 1.34em;
+            font-weight: 600;
+            letter-spacing: -0.012em;
+        }
+        .reveal p { line-height: 1.5; margin: 0 0 .7em; font-weight: 400; }
+        .reveal strong { font-weight: 700; color: var(--ink); }
+        .reveal em { font-style: italic; }
+        .reveal a { color: var(--uvm-red-deep); text-decoration: none; }
+
+        /* Kicker / eyebrow label */
+        .kicker {
+            font-family: var(--sans);
+            font-size: .56em;
+            font-weight: 700;
+            letter-spacing: .26em;
+            text-transform: uppercase;
+            color: var(--uvm-red);
+            display: inline-flex;
+            align-items: center;
+            gap: .8em;
+            margin-bottom: .9rem;
+        }
+        .kicker::before {
+            content: "";
+            width: 26px; height: 2px;
+            background: var(--uvm-red);
+            display: inline-block;
+        }
+        .kicker.apple { color: var(--apple-ink); }
+        .kicker.apple::before { background: var(--apple-ink); }
+        .kicker.xiaomi { color: var(--xiaomi-deep); }
+        .kicker.xiaomi::before { background: var(--xiaomi); }
+
+        /* Heading rule */
+        .head-rule { display: block; }
+        .head-rule h2, .head-rule h3 { position: relative; }
+        .accent-rule {
+            width: 64px; height: 3px;
+            background: var(--uvm-red);
+            margin: .75rem 0 1.4rem;
+            border-radius: 2px;
+        }
+        .accent-rule.apple { background: var(--apple-ink); }
+        .accent-rule.xiaomi { background: var(--xiaomi); }
+
+        /* ===== Lists, editorial ===== */
+        .reveal ul { list-style: none; margin: 0; padding: 0; }
+        .reveal .editorial-list > li {
+            position: relative;
+            padding: 12px 0 12px 40px;
+            margin: 0;
+            border-bottom: 1px solid var(--line);
+            line-height: 1.4;
+            font-size: .96em;
+        }
+        .reveal .editorial-list > li:last-child { border-bottom: none; }
+        .reveal .editorial-list > li::before {
+            content: counter(li, decimal-leading-zero);
+            counter-increment: li;
+            position: absolute; left: 0; top: 13px;
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: .78em;
+            color: var(--uvm-red);
+            font-feature-settings: "tnum";
+        }
+        .reveal .editorial-list { counter-reset: li; }
+        .editorial-list.apple > li::before { color: var(--apple-ink); }
+        .editorial-list.xiaomi > li::before { color: var(--xiaomi-deep); }
+
+        /* Simple dash list */
+        .reveal .dash-list > li {
+            position: relative;
+            padding: 7px 0 7px 26px;
+            line-height: 1.4;
+            font-size: .9em;
+            color: var(--ink-2);
+        }
+        .reveal .dash-list > li::before {
+            content: "";
+            position: absolute; left: 0; top: 17px;
+            width: 12px; height: 2px;
+            background: var(--uvm-red);
+        }
+        .dash-list.apple > li::before { background: var(--apple-ink); }
+        .dash-list.xiaomi > li::before { background: var(--xiaomi); }
+
+        /* ===== Cards ===== */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: stretch;
+        }
+        .card {
+            background: linear-gradient(180deg, #FFFFFF 0%, var(--paper-2) 100%);
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            padding: 30px 30px 28px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: "";
+            position: absolute; left: 0; top: 0; bottom: 0;
+            width: 4px; background: var(--uvm-red);
+        }
+        .card.apple::before { background: var(--apple-ink); }
+        .card.xiaomi::before { background: var(--xiaomi); }
+        .card h3 { margin-bottom: .35rem; }
+        .card .card-meta {
+            font-family: var(--sans);
+            font-size: .58em;
+            font-weight: 700;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--ink-3);
+            margin-bottom: .9rem;
+        }
+        .card p { font-size: .88em; color: var(--ink-2); }
+        .card p:last-child { margin-bottom: 0; }
+
+        /* ===== Pull-quotes (magazine) ===== */
+        .pull {
+            position: relative;
+            background: #FFFFFF;
+            border: 1px solid var(--line);
+            border-left: none;
+            padding: 26px 30px 24px 64px;
+            margin: 18px 0;
+            box-shadow: var(--shadow-sm);
+            border-radius: 3px;
+        }
+        .pull::before {
+            content: "\201C";
+            position: absolute;
+            left: 16px; top: 6px;
+            font-family: var(--serif);
+            font-weight: 900;
+            font-size: 3.1em;
+            line-height: 1;
+            color: var(--uvm-red-soft);
+        }
+        .pull .q {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 500;
+            font-size: 1.06em;
+            line-height: 1.38;
+            color: var(--ink);
+        }
+        .pull .src {
+            display: block;
+            font-family: var(--sans);
+            font-style: normal;
+            font-size: .62em;
+            font-weight: 600;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            color: var(--ink-3);
+            margin-top: .8rem;
+        }
+        .pull.pos { border-top: 3px solid var(--pos); }
+        .pull.pos::before { color: #BBD9C8; }
+        .pull.neg { border-top: 3px solid var(--neg); }
+        .pull.neg::before { color: #E3B5AE; }
+
+        /* ===== Tags ===== */
+        .tag {
+            display: inline-block;
+            padding: 4px 12px 3px;
+            border-radius: 100px;
+            font-family: var(--sans);
+            font-size: .62em;
+            font-weight: 700;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            border: 1px solid transparent;
+        }
+        .tag-high { background: var(--pos-soft); color: var(--pos); border-color: #BFDCCD; }
+        .tag-low { background: var(--neg-soft); color: var(--neg); border-color: #E6C4BE; }
+        .tag-partial { background: var(--warn-soft); color: var(--warn); border-color: #E6D3A8; }
+
+        /* ===== Tables, designed ===== */
+        .table-wrap {
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            background: #fff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .8em;
+            font-family: var(--sans);
+        }
+        table thead th {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 14px 20px;
+            text-align: left;
+            font-weight: 700;
+            font-size: .82em;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+        table tbody td {
+            padding: 13px 20px;
+            border-bottom: 1px solid var(--line);
+            color: var(--ink-2);
+            vertical-align: middle;
+        }
+        table tbody tr:last-child td { border-bottom: none; }
+        table tbody tr:nth-child(even) { background: var(--paper-2); }
+        table tbody td:first-child { font-weight: 600; color: var(--ink); }
+
+        /* ===== Story / longform ===== */
+        .longform {
+            max-width: 100%;
+            font-size: .94em;
+            line-height: 1.56;
+            color: var(--ink-2);
+        }
+        .longform.narrow { max-width: 78%; }
+        .longform p { margin-bottom: .85em; }
+        .longform p:first-of-type::first-letter {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 3.1em;
+            line-height: .72;
+            float: left;
+            padding: 8px 14px 0 0;
+            color: var(--uvm-red);
+        }
+        .longform.no-drop p:first-of-type::first-letter {
+            font-size: 1em; float: none; padding: 0; color: inherit; font-family: inherit; font-weight: inherit;
+        }
+        .longform strong { color: var(--ink); }
+
+        /* ===== Slide chrome: folio + running head ===== */
+        .folio {
+            position: absolute;
+            left: 78px; right: 78px;
+            bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: var(--sans);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--ink-3);
+            border-top: 1px solid var(--line);
+            padding-top: 10px;
+        }
+        .folio .dot { color: var(--uvm-red); }
+
+        /* mini inline UVM mark used in folio */
+        .uvm-mini { height: 13px; width: auto; display: inline-block; vertical-align: -2px; }
+        .uvm-mini path { fill: var(--uvm-red); }
+
+        /* ===== SECTION DIVIDERS ===== */
+        .divider {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            padding: 8vh 5.5vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            background: var(--ink);
+            color: var(--paper);
+        }
+        .divider .big-num {
+            position: absolute;
+            right: -2%;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: var(--serif);
+            font-weight: 900;
+            font-size: 30em;
+            line-height: .8;
+            color: rgba(255,255,255,.05);
+            letter-spacing: -.04em;
+            pointer-events: none;
+            user-select: none;
+        }
+        .divider .sec-kicker {
+            font-family: var(--sans);
+            font-size: .6em;
+            font-weight: 700;
+            letter-spacing: .34em;
+            text-transform: uppercase;
+            color: var(--uvm-red);
+            display: flex; align-items: center; gap: 1em;
+            margin-bottom: 1.6rem;
+        }
+        .divider .sec-kicker::before {
+            content: ""; width: 46px; height: 2px; background: var(--uvm-red); display: inline-block;
+        }
+        .divider h2 {
+            color: var(--paper);
+            font-size: 3.1em;
+            font-weight: 500;
+            max-width: 16ch;
+            position: relative; z-index: 2;
+        }
+        .divider .sec-sub {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.15em;
+            color: rgba(247,243,236,.66);
+            margin-top: 1.2rem;
+            max-width: 30ch;
+            position: relative; z-index: 2;
+        }
+        .divider .sec-index {
+            position: absolute;
+            left: 80px; bottom: 50px;
+            font-family: var(--sans);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: rgba(247,243,236,.4);
+        }
+        /* brand-tinted dividers */
+        .divider.apple { background: #0B0B0D; }
+        .divider.apple .sec-kicker { color: #fff; }
+        .divider.apple .sec-kicker::before { background: #fff; }
+        .divider.apple .big-num { color: rgba(255,255,255,.045); }
+        .divider.apple .sec-sub { color: rgba(255,255,255,.55); }
+
+        .divider.xiaomi { background: #17120D; }
+        .divider.xiaomi .sec-kicker { color: var(--xiaomi); }
+        .divider.xiaomi .sec-kicker::before { background: var(--xiaomi); }
+        .divider.xiaomi .big-num { color: rgba(255,105,0,.07); }
+        .divider.xiaomi .sec-sub { color: rgba(255,233,214,.6); }
+
+        /* divider thin top hairline accent */
+        .divider .edge {
+            position: absolute; left: 0; top: 0; height: 5px; width: 100%;
+            background: linear-gradient(90deg, var(--uvm-red) 0 38%, transparent 38%);
+        }
+        .divider.apple .edge { background: linear-gradient(90deg, #fff 0 38%, transparent 38%); }
+        .divider.xiaomi .edge { background: linear-gradient(90deg, var(--xiaomi) 0 38%, transparent 38%); }
+
+        /* ===== PORTADA (cover) ===== */
+        .cover {
+            position: relative;
+            width: 100vw; height: 100vh;
+            background: var(--paper);
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: auto 1fr auto;
+        }
+        .cover::before {
+            /* large red editorial band on the left */
+            content: "";
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 14px;
+            background: var(--uvm-red);
+        }
+        .cover::after {
+            content: "\201C";
+            position: absolute;
+            right: -4%;
+            bottom: -22%;
+            font-family: var(--serif);
+            font-weight: 900;
+            font-size: clamp(20em, 50vw, 52em);
+            line-height: 1;
+            color: rgba(185,44,50,.06);
+            pointer-events: none;
+        }
+        .cover-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4vh 5vw 0 5.2vw;
+            position: relative; z-index: 2;
+        }
+        .cover-logo svg { height: 30px; width: auto; }
+        .cover-logo svg path { fill: var(--uvm-red); }
+        .cover-uni {
+            text-align: right;
+            font-family: var(--sans);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--ink-3);
+            line-height: 1.5;
+        }
+        .cover-body {
+            padding: 0 5vw 0 5.2vw;
+            align-self: center;
+            position: relative; z-index: 2;
+        }
+        .cover-kicker {
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: .32em;
+            text-transform: uppercase;
+            color: var(--uvm-red);
+            display: flex; align-items: center; gap: 1em;
+            margin-bottom: 1.6rem;
+        }
+        .cover-kicker::before { content:""; width: 54px; height: 2px; background: var(--uvm-red); }
+        .cover h1 {
+            font-family: var(--serif);
+            font-size: clamp(3.8em, 12vw, 7em);
+            font-weight: 600;
+            line-height: .9;
+            letter-spacing: -0.03em;
+            color: var(--ink);
+            margin: 0;
+        }
+        .cover h1 .em { font-style: italic; font-weight: 500; color: var(--uvm-red); }
+        .cover .lede {
+            font-family: var(--serif);
+            font-style: italic;
+            font-weight: 400;
+            font-size: 1.34em;
+            color: var(--ink-2);
+            max-width: 26ch;
+            margin-top: 1.5rem;
+            line-height: 1.32;
+        }
+        .cover-foot {
+            border-top: 1px solid var(--line);
+            margin: 0 5vw 4vh 5.2vw;
+            padding-top: 2.2vh;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr .55fr;
+            align-items: start;
+            gap: 30px;
+            position: relative; z-index: 2;
+        }
+        .cover-foot .fld { }
+        .cover-foot .fld-team .team-names {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4px 26px;
+            margin-top: 2px;
+        }
+        .cover-foot .fld-team .team-names span {
+            font-family: var(--sans);
+            font-size: clamp(13px, 1.6vh, 16px);
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.3;
+            position: relative;
+            padding-left: 12px;
+            white-space: nowrap;
+        }
+        .cover-foot .fld-team .team-names span::before {
+            content: "";
+            position: absolute; left: 0; top: 9px;
+            width: 5px; height: 5px;
+            background: var(--uvm-red);
+            border-radius: 50%;
+        }
+        .cover-foot .fld .lbl {
+            font-family: var(--sans);
+            font-size: clamp(10px, 1.3vh, 13px);
+            font-weight: 700;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--uvm-red);
+            margin-bottom: 5px;
+        }
+        .cover-foot .fld .val {
+            font-family: var(--sans);
+            font-size: clamp(15px, 1.8vh, 18px);
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+        .cover-foot .fld .val small { display:block; color: var(--ink-3); font-weight:400; font-size: clamp(12px, 1.4vh, 15px); }
+
+        /* ===== CIERRE (closing) ===== */
+        .closing {
+            position: relative;
+            width: 100vw; height: 100vh;
+            background: var(--ink);
+            color: var(--paper);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8vh 5.5vw;
+        }
+        .closing::after {
+            content: "\201D";
+            position: absolute;
+            left: -3%; top: -26%;
+            font-family: var(--serif);
+            font-weight: 900;
+            font-size: 50em;
+            color: rgba(255,255,255,.04);
+            pointer-events: none;
+        }
+        .closing .edge {
+            position: absolute; left: 0; top: 0; height: 5px; width: 100%;
+            background: linear-gradient(90deg, var(--uvm-red) 0 38%, transparent 38%);
+        }
+        .closing .c-kicker {
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: .32em;
+            text-transform: uppercase;
+            color: var(--uvm-red);
+            display:flex; align-items:center; gap:1em;
+            margin-bottom: 1.4rem;
+        }
+        .closing .c-kicker::before { content:""; width:50px; height:2px; background: var(--uvm-red); }
+        .closing h1 {
+            font-family: var(--serif);
+            color: var(--paper);
+            font-size: clamp(3.6em, 11vw, 6.5em);
+            font-weight: 500;
+            line-height: .92;
+            position: relative; z-index: 2;
+        }
+        .closing h1 .em { font-style: italic; color: var(--uvm-red-soft); }
+        .closing .c-foot {
+            margin-top: 2.4rem;
+            display: flex; align-items: flex-end; justify-content: space-between;
+            position: relative; z-index: 2;
+            border-top: 1px solid rgba(247,243,236,.16);
+            padding-top: 20px;
+        }
+        .closing .c-meta {
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(247,243,236,.8);
+            line-height: 1.6;
+        }
+        .closing .c-meta .lbl { color: var(--uvm-red); font-weight: 700; letter-spacing:.16em; text-transform:uppercase; font-size:10px; display:block; margin-bottom:4px;}
+        .closing .c-logo svg { height: 26px; }
+        .closing .c-logo svg path { fill: var(--paper); }
+
+        /* ===== Index slide ===== */
+        .toc {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0 56px;
+            margin-top: .4rem;
+        }
+        .toc .toc-item {
+            display: flex;
+            align-items: baseline;
+            gap: 18px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--line);
+        }
+        .toc .toc-num {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 1.5em;
+            color: var(--uvm-red);
+            min-width: 1.4em;
+            font-feature-settings: "tnum";
+        }
+        .toc .toc-label {
+            font-family: var(--sans);
+            font-weight: 500;
+            font-size: .94em;
+            color: var(--ink);
+            line-height: 1.25;
+        }
+        .toc .toc-label small {
+            display:block; color: var(--ink-3); font-weight: 400; font-size: .82em; margin-top: 3px;
+        }
+
+        /* ===== Stat / infographic (replaces purple gradient) ===== */
+        .viz-frame {
+            border: 1px solid var(--line);
+            border-radius: 4px;
+            background:
+                linear-gradient(180deg,#fff 0%, var(--paper-2) 100%);
+            box-shadow: var(--shadow-md);
+            padding: 30px 34px 32px;
+        }
+        .viz-cap {
+            font-family: var(--sans);
+            font-size: .6em;
+            font-weight: 700;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--ink-3);
+            margin-bottom: 1.2rem;
+            display:flex; align-items:center; gap:.7em;
+        }
+        .viz-cap::before { content:""; width:18px; height:2px; background: var(--uvm-red); }
+        .stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+        .stat-cell {
+            padding: 6px 26px;
+            border-right: 1px solid var(--line);
+            text-align: left;
+        }
+        .stat-cell:first-child { padding-left: 0; }
+        .stat-cell:last-child { border-right: none; padding-right: 0; }
+        .stat-cell .num {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 3em;
+            line-height: 1;
+            color: var(--uvm-red);
+            letter-spacing: -.02em;
+        }
+        .stat-cell .lab {
+            font-family: var(--sans);
+            font-size: .72em;
+            color: var(--ink-2);
+            line-height: 1.35;
+            margin-top: .7rem;
+        }
+        .note { font-family: var(--sans); font-size: .62em; color: var(--ink-3); margin-top: 1.1rem; font-style: italic; }
+
+        /* ===== Narrative flow diagram (replaces colored circles) ===== */
+        .flow {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+            margin-top: .4rem;
+        }
+        .flow-step {
+            flex: 1;
+            background: #fff;
+            border: 1px solid var(--line);
+            padding: 22px 18px;
+            text-align: left;
+            position: relative;
+        }
+        .flow-step + .flow-step { border-left: none; }
+        .flow-step .st-n {
+            font-family: var(--serif);
+            font-weight: 600;
+            font-size: 1.1em;
+            color: var(--ink-3);
+            display: block;
+            margin-bottom: .5rem;
+        }
+        .flow-step .st-t {
+            font-family: var(--sans);
+            font-weight: 700;
+            font-size: .82em;
+            color: var(--ink);
+            line-height: 1.2;
+            letter-spacing: .01em;
+        }
+        .flow-step .st-top { height: 4px; width: 100%; display:block; margin: -22px -18px 16px; }
+        .flow-step:nth-child(1) .st-top { background: var(--neg); }
+        .flow-step:nth-child(2) .st-top { background: var(--warn); }
+        .flow-step:nth-child(3) .st-top { background: var(--uvm-red); }
+        .flow-step:nth-child(4) .st-top { background: var(--pos); }
+        .flow-step:nth-child(1) .st-n { color: var(--neg); }
+        .flow-step:nth-child(2) .st-n { color: var(--warn); }
+        .flow-step:nth-child(3) .st-n { color: var(--uvm-red); }
+        .flow-step:nth-child(4) .st-n { color: var(--pos); }
+        .flow-arrow {
+            align-self: center;
+            color: var(--ink-3);
+            font-size: 1.1em;
+            padding: 0 4px;
+            font-family: var(--sans);
+        }
+
+        /* ===== References ===== */
+        .ref-list {
+            font-family: var(--sans);
+            font-size: .64em;
+            line-height: 1.5;
+            counter-reset: ref;
+        }
+        .ref-list p {
+            padding: 12px 0 12px 38px;
+            border-bottom: 1px solid var(--line);
+            margin: 0;
+            position: relative;
+            color: var(--ink-2);
+            text-indent: 0;
+        }
+        .ref-list p:last-child { border-bottom: none; }
+        .ref-list p::before {
+            counter-increment: ref;
+            content: counter(ref, decimal-leading-zero);
+            position: absolute; left: 0; top: 12px;
+            font-family: var(--serif);
+            font-weight: 600;
+            color: var(--uvm-red);
+            font-size: .92em;
+        }
+        .ref-list em { color: var(--ink); }
+        .ref-list a { word-break: break-all; }
+
+        /* small lede under section title slides */
+        .slide-lede {
+            font-family: var(--serif);
+            font-style: italic;
+            font-size: 1.2em;
+            color: var(--ink-2);
+            margin-top: .5rem;
+        }
+
+        /* layout helper: header block then content */
+        .stack-head { margin-bottom: 1.3rem; }
+
+        /* fragment dimming */
+        .reveal .fragment.fade-in-then-semi-out.visible:not(.current-fragment) { opacity: 0.4; }
+
+        /* progress + controls recolor */
+        .reveal .progress { color: var(--uvm-red); height: 4px; }
+        .reveal .controls { color: var(--uvm-red); }
+        .reveal .slide-number {
+            font-family: var(--sans);
+            background: transparent;
+            color: var(--ink-3);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: .1em;
+            right: 14px; bottom: 12px;
+        }
+        .divider .reveal-slide-number,
+        section.has-dark .slide-number { color: rgba(247,243,236,.5); }
+
+        /* generic content wrapper inside sheet so folio sits below */
+        .sheet-body { flex: 1 1 auto; min-height: 0; }
+
+        /* tighten when lots of content */
+        .compact .longform { font-size: .86em; line-height: 1.46; }
+    </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ======================= PORTADA ======================= -->
+<section data-background-color="#16140F" class="has-dark">
+    <div class="cover">
+        <div class="cover-top">
+            <div class="cover-logo">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 30" xml:space="preserve" aria-label="UVM">
+                    <path d="M97.5,3.13l0,23.73h-5.94l0-14.69l-9.62,10.97l-9.62-10.97l0,14.69h-5.88l0-23.73h0.3l0,0c0.01,0,0.02,0,0.03,0c2.68,0,4.99,0.82,6.05,2v0l9.12,10.14l9.2-10.17c1.07-1.16,3.36-1.97,6.01-1.97c0,0,0.02,0,0.03,0l0,0H97.5z M63.27,3.13L63.27,3.13c0,0-0.02,0-0.04,0c-2.97,0-5.53,0.81-6.72,1.98l-9.31,14.1L37.88,5.1c-1.19-1.16-3.75-1.97-6.72-1.97c-0.01,0-0.02,0-0.02,0l-0.01,0h-1.88l15.86,23.73l4.17,0L65.2,3.13H63.27z M22.14,5.08l0,12.56c0,1.18,0,2.8-1.69,3.85c-1.24,0.74-3.21,0.92-5.46,0.92c-1.8,0-3.77-0.09-5.01-0.88c-1.46-0.92-1.52-2.23-1.52-3.46l0-13.01C7.41,3.93,5.14,3.14,2.5,3.13l0,15.43c0,1.92,0.4,4.24,2.59,5.99c2.65,2.1,6.92,2.32,10.02,2.32c3.43,0,7.43-0.35,9.96-2.05c2.65-1.75,2.99-3.98,2.99-6.26l0-15.43C25.43,3.15,23.18,3.95,22.14,5.08"/>
+                </svg>
+            </div>
+            <div class="cover-uni">
+                Universidad del Valle de México<br>
+                Solucionar para Cambiar &middot; Unidad 1
+            </div>
+        </div>
+
+        <div class="cover-body">
+            <div class="cover-kicker">Actividad 1</div>
+            <h1>Story<span class="em">telling</span></h1>
+            <p class="lede">El poder de las narrativas de marca y las historias de los consumidores.</p>
+        </div>
+
+        <div class="cover-foot">
+            <div class="fld fld-team">
+                <div class="lbl">Integrantes &middot; Equipo 4</div>
+                <div class="team-names">
+                    <span>Diego Armando Beltrán Arreola</span>
+                    <span>Luis Daniel Rosales Lozano</span>
+                    <span>Enrique Varela Campuzano</span>
+                    <span>Naomi Giselle Silva Morán</span>
+                    <span>Jorge Ignacio Valenzuela Padrón</span>
+                    <span>Nelson Andrés Gutiérrez Morán</span>
+                </div>
+            </div>
+            <div class="fld">
+                <div class="lbl">Materia</div>
+                <div class="val">Solucionar para Cambiar<small>SGTI0103A-531XO04B2602</small></div>
+            </div>
+            <div class="fld">
+                <div class="lbl">Docente</div>
+                <div class="val">Paola Argüelles Gómez</div>
+            </div>
+            <div class="fld">
+                <div class="lbl">Entrega</div>
+                <div class="val">1 de junio<small>2026</small></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= ÍNDICE ======================= -->
+<section>
+    <div class="sheet">
+        <div class="sheet-body">
+            <div class="stack-head">
+                <span class="kicker">Sumario</span>
+                <h2>Contenido</h2>
+                <div class="accent-rule"></div>
+            </div>
+            <div class="toc">
+                <div class="toc-item fragment fade-up"><span class="toc-num">01</span><span class="toc-label">Exploración de marcas<small>Apple y Xiaomi</small></span></div>
+                <div class="toc-item fragment fade-up"><span class="toc-num">02</span><span class="toc-label">Análisis de narrativas<small>Las historias frente a las reviews</small></span></div>
+                <div class="toc-item fragment fade-up"><span class="toc-num">03</span><span class="toc-label">Historia original<small>Storytelling aplicado</small></span></div>
+                <div class="toc-item fragment fade-up"><span class="toc-num">04</span><span class="toc-label">Recursos visuales<small>Infografía y diagrama narrativo</small></span></div>
+                <div class="toc-item fragment fade-up"><span class="toc-num">05</span><span class="toc-label">Reflexión final<small>Qué aprendimos</small></span></div>
+                <div class="toc-item fragment fade-up"><span class="toc-num">06</span><span class="toc-label">Referencias<small>Fuentes consultadas</small></span></div>
+            </div>
+        </div>
+        <div class="folio">
+            <span>Solucionar para Cambiar</span>
+            <span><span class="dot">&bull;</span>&nbsp; Storytelling</span>
+        </div>
+    </div>
+</section>
+
+<!-- ======================= SECCIÓN 1: MARCAS ======================= -->
+<section>
+    <!-- DIVIDER -->
+    <section data-background-color="#0B0B0D" class="has-dark">
+        <div class="divider apple">
+            <span class="edge"></span>
+            <span class="big-num">01</span>
+            <div class="sec-kicker">Sección Uno</div>
+            <h2>Exploración de marcas</h2>
+            <p class="sec-sub">Dos identidades opuestas: Apple, la favorita; Xiaomi, la desconocida.</p>
+            <div class="sec-index">Apple &nbsp;/&nbsp; Xiaomi &nbsp;/&nbsp; Reviews</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Las dos marcas</span>
+                    <h2>Exploración de marcas</h2>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="two-col">
+                    <div class="card apple fragment fade-up">
+                        <h3 class="brand-apple">Apple</h3>
+                        <div class="card-meta">Marca favorita</div>
+                        <p>Empresa de tecnología fundada en 1976. Reconocida por su diseño, ecosistema integrado y narrativa premium.</p>
+                    </div>
+                    <div class="card xiaomi fragment fade-up">
+                        <h3 class="brand-xiaomi">Xiaomi</h3>
+                        <div class="card-meta">Marca desconocida</div>
+                        <p>Empresa china fundada en 2010. Se posiciona como democratizadora de la tecnología con precios accesibles.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="folio"><span>01 &mdash; Exploración de marcas</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker apple">Apple</span>
+                    <h3>Narrativa de Apple</h3>
+                    <div class="accent-rule apple"></div>
+                    <p style="font-size:.9em;color:var(--ink-2);margin:0;">Apple construye su marca sobre estos pilares:</p>
+                </div>
+                <ul class="editorial-list apple">
+                    <li class="fragment fade-up"><strong>&ldquo;Think Different&rdquo;</strong> — El usuario como visionario e inconformista.</li>
+                    <li class="fragment fade-up"><strong>Empoderamiento</strong> — &ldquo;Shot on iPhone&rdquo;: no presumir la cámara, mostrar lo que TÚ creas.</li>
+                    <li class="fragment fade-up"><strong>Minimalismo</strong> — Espacio en blanco, simplicidad; el vacío comunica premium.</li>
+                    <li class="fragment fade-up"><strong>Ecosistema exclusivo</strong> — Un club cerrado que refuerza la lealtad tribal.</li>
+                    <li class="fragment fade-up"><strong>Experiencia, no producto</strong> — Tiendas como &ldquo;plazas públicas&rdquo;, keynotes como teatro.</li>
+                </ul>
+            </div>
+            <div class="folio"><span>01 &mdash; Narrativa Apple</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker xiaomi">Xiaomi</span>
+                    <h3>Narrativa de Xiaomi</h3>
+                    <div class="accent-rule xiaomi"></div>
+                    <p style="font-size:.9em;color:var(--ink-2);margin:0;">Xiaomi posiciona su marca con:</p>
+                </div>
+                <ul class="editorial-list xiaomi">
+                    <li class="fragment fade-up"><strong>&ldquo;Innovación para todos&rdquo;</strong> — Especificaciones premium sin sobreprecio.</li>
+                    <li class="fragment fade-up"><strong>&ldquo;Human x Car x Home&rdquo;</strong> — Ecosistema conectado: hogar, movilidad, vida personal.</li>
+                    <li class="fragment fade-up"><strong>&ldquo;Honest pricing&rdquo;</strong> — Precio transparente y justo, no solo el más bajo.</li>
+                    <li class="fragment fade-up"><strong>Comunidad co-creadora</strong> — Foros, Mi Fan Festival, betas colaborativas.</li>
+                    <li class="fragment fade-up"><strong>Challenger innovador</strong> — &ldquo;Vinimos para quedarnos&rdquo; (Jia Wei, Forbes, 2026).</li>
+                </ul>
+            </div>
+            <div class="folio"><span>01 &mdash; Narrativa Xiaomi</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker apple">Apple &middot; Reviews</span>
+                    <h3>Lo positivo</h3>
+                    <div class="accent-rule apple"></div>
+                </div>
+                <div class="pull pos fragment fade-up">
+                    <span class="q">El hardware es excepcional. El chip Apple Silicon cambió las reglas del juego en rendimiento y eficiencia energética.</span>
+                </div>
+                <ul class="dash-list apple" style="margin-top:14px;">
+                    <li class="fragment fade-up">NPS: 72/100 (sector tecnológico).</li>
+                    <li class="fragment fade-up">J.D. Power 2023: primer lugar en satisfacción móvil (866/1000).</li>
+                    <li class="fragment fade-up">65% de usuarios de iPhone poseen al menos otro producto Apple.</li>
+                    <li class="fragment fade-up">Fiabilidad de hardware: 4.5/5 (Six Colors Report Card, 2026).</li>
+                </ul>
+            </div>
+            <div class="folio"><span>01 &mdash; Apple, lo positivo</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker apple">Apple &middot; Reviews</span>
+                    <h3>Lo negativo</h3>
+                    <div class="accent-rule apple"></div>
+                </div>
+                <div class="pull neg fragment fade-up">
+                    <span class="q">Apple Support is not helpful to their customers after you buy the product.</span>
+                    <span class="src">Steven, WA &middot; mayo 2026 &middot; ConsumerAffairs</span>
+                </div>
+                <div class="pull neg fragment fade-up">
+                    <span class="q">If you ever switch to Android, Apple will lock you out of all your accounts.</span>
+                    <span class="src">Kathy G., OR &middot; oct. 2024 &middot; Sitejabber</span>
+                </div>
+                <ul class="dash-list apple" style="margin-top:12px;">
+                    <li class="fragment fade-up">ConsumerAffairs: 1.3/5 estrellas (85% reseñas de 1 estrella).</li>
+                    <li class="fragment fade-up">Sitejabber: 2.6/5 (2,092 reseñas).</li>
+                    <li class="fragment fade-up">Quejas principales: servicio post-venta, ecosistema cerrado, obsolescencia percibida.</li>
+                </ul>
+            </div>
+            <div class="folio"><span>01 &mdash; Apple, lo negativo</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker xiaomi">Xiaomi &middot; Reviews</span>
+                    <h3>Lo positivo</h3>
+                    <div class="accent-rule xiaomi"></div>
+                </div>
+                <div class="pull pos fragment fade-up">
+                    <span class="q">Es una de las compañías tech más versátiles del mundo. Todo lo que he usado ha sido de buena calidad.</span>
+                </div>
+                <ul class="dash-list xiaomi" style="margin-top:14px;">
+                    <li class="fragment fade-up">Relación calidad-precio excepcional.</li>
+                    <li class="fragment fade-up">Ecosistema amplio: smartphones, aspiradoras, TVs, lámparas.</li>
+                    <li class="fragment fade-up">Batería de larga duración.</li>
+                    <li class="fragment fade-up">Tercer lugar en ventas en Europa (tras Apple y Samsung).</li>
+                </ul>
+            </div>
+            <div class="folio"><span>01 &mdash; Xiaomi, lo positivo</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker xiaomi">Xiaomi &middot; Reviews</span>
+                    <h3>Lo negativo</h3>
+                    <div class="accent-rule xiaomi"></div>
+                </div>
+                <div class="pull neg fragment fade-up">
+                    <span class="q">La PEOR marca de smartphones... ¡NO DESPERDICIEN SU DINERO en Xiaomi!</span>
+                    <span class="src">Usuario verificado &middot; SiteJabber</span>
+                </div>
+                <div class="pull neg fragment fade-up">
+                    <span class="q">Es una estafa. Tu producto Mi se vuelve obsoleto si necesita reparación. Falta de repuestos.</span>
+                </div>
+                <ul class="dash-list xiaomi" style="margin-top:12px;">
+                    <li class="fragment fade-up">SiteJabber: 3.1/5 (polarizado: 44% dan 5 estrellas, 41% dan 1 estrella).</li>
+                    <li class="fragment fade-up">Servicio post-venta deficiente (tiempos de 15+ días).</li>
+                    <li class="fragment fade-up">Problemas de software (actualizaciones inestables) y calidad inconsistente entre modelos.</li>
+                </ul>
+            </div>
+            <div class="folio"><span>01 &mdash; Xiaomi, lo negativo</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+</section>
+
+<!-- ======================= SECCIÓN 2: ANÁLISIS ======================= -->
+<section>
+    <section data-background-color="#16140F" class="has-dark">
+        <div class="divider">
+            <span class="edge"></span>
+            <span class="big-num">02</span>
+            <div class="sec-kicker">Sección Dos</div>
+            <h2>Análisis de narrativas</h2>
+            <p class="sec-sub">Las historias frente a la realidad. ¿Dónde se alinean y dónde se quiebran?</p>
+            <div class="sec-index">Alineación &nbsp;/&nbsp; Reflexión &nbsp;/&nbsp; Reputación</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker apple">Apple &middot; Narrativa vs. realidad</span>
+                    <h3>Alineación narrativa-realidad</h3>
+                    <div class="accent-rule apple"></div>
+                </div>
+                <div class="table-wrap fragment fade-up">
+                    <table>
+                        <thead>
+                            <tr><th>Narrativa</th><th>Realidad</th><th>Alineación</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Hardware premium</td><td>Universalmente elogiado</td><td><span class="tag tag-high">Alta</span></td></tr>
+                            <tr><td>Innovación constante</td><td>Reconocida pero con tropiezos</td><td><span class="tag tag-partial">Parcial</span></td></tr>
+                            <tr><td>Experiencia en tienda</td><td>85% reseñas negativas sobre servicio</td><td><span class="tag tag-low">Baja</span></td></tr>
+                            <tr><td>&ldquo;Just works&rdquo;</td><td>macOS 2026: 2.7/5 en calidad</td><td><span class="tag tag-low">Baja</span></td></tr>
+                            <tr><td>Ecosistema empoderador</td><td>Percibido como &ldquo;jaula dorada&rdquo;</td><td><span class="tag tag-partial">Dividida</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="folio"><span>02 &mdash; Alineación Apple</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet compact">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker apple">Apple &middot; Marca favorita</span>
+                    <h3>Reflexión</h3>
+                    <div class="accent-rule apple"></div>
+                </div>
+                <div class="longform narrow">
+                    <p>Los reviews de Apple revelan una paradoja: en encuestas estructuradas (J.D. Power, NPS) la satisfacción es altísima, pero en plataformas abiertas (Trustpilot, ConsumerAffairs) predominan las quejas.</p>
+                    <p>La narrativa de hardware premium y diseño <strong>sí se alinea</strong> con la experiencia real. Donde la historia se quiebra es en el servicio post-venta y la promesa de &ldquo;el cliente primero&rdquo;. Los consumidores que aman Apple lo hacen por los mismos motivos que la marca promociona: creatividad, diseño, ecosistema. Los que la critican señalan la desconexión entre la promesa de cuidado y la frialdad del soporte real.</p>
+                    <p>Esto <strong>refuerza nuestra preferencia</strong>, pero con matices: admiramos la excelencia en producto y narrativa, reconociendo que su debilidad está donde la marca deja de contar historias y empieza a prestar servicio.</p>
+                </div>
+            </div>
+            <div class="folio"><span>02 &mdash; Reflexión Apple</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet compact">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker xiaomi">Xiaomi &middot; Marca desconocida</span>
+                    <h3>Percepción</h3>
+                    <div class="accent-rule xiaomi"></div>
+                </div>
+                <div class="longform narrow">
+                    <p>Antes de investigar, percibíamos a Xiaomi como &ldquo;la alternativa china barata&rdquo;. Después de leer reseñas y analizar su narrativa, nuestra percepción cambió: es una empresa ambiciosa en plena transición de marca económica a ecosistema premium (vehículo eléctrico SU7, colaboración con Leica).</p>
+                    <p>El problema: su historia no ha alcanzado a su producto. Los consumidores reconocen el valor pero no sienten conexión emocional. Xiaomi habla de &ldquo;innovación para todos&rdquo; pero sus reviews muestran que cuando algo falla, el cliente queda solo.</p>
+                    <p><strong>Historias que conectarían mejor:</strong> testimoniales reales de cómo su tecnología accesible cambió la vida de alguien concreto; narrativas de su servicio post-venta mejorando (transparencia sobre fallos y soluciones); mostrar la comunidad de Mi Fans como protagonistas, no como público.</p>
+                </div>
+            </div>
+            <div class="folio"><span>02 &mdash; Percepción Xiaomi</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Reputación</span>
+                    <h3>El papel de las historias en la reputación</h3>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="two-col">
+                    <div class="card apple fragment fade-up">
+                        <h3 class="brand-apple">Apple</h3>
+                        <div class="card-meta">Escudo reputacional</div>
+                        <p>Su storytelling es tan fuerte que sobrevive a reviews negativos. La tribu ya está convencida; los detractores son percibidos como excepciones. La narrativa actúa como <strong>escudo reputacional</strong>.</p>
+                    </div>
+                    <div class="card xiaomi fragment fade-up">
+                        <h3 class="brand-xiaomi">Xiaomi</h3>
+                        <div class="card-meta">Vulnerable al ruido</div>
+                        <p>Sin una narrativa emocional fuerte, cada review negativo pesa más. No hay &ldquo;tribu&rdquo; que defienda la marca. La ausencia de storytelling deja la reputación <strong>vulnerable al ruido</strong>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="folio"><span>02 &mdash; Reputación</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+</section>
+
+<!-- ======================= SECCIÓN 3: HISTORIA ORIGINAL ======================= -->
+<section>
+    <section data-background-color="#16140F" class="has-dark">
+        <div class="divider">
+            <span class="edge"></span>
+            <span class="big-num">03</span>
+            <div class="sec-kicker">Sección Tres &middot; Relato</div>
+            <h2>El ping que nadie contestó</h2>
+            <p class="sec-sub">Una historia sobre el aislamiento social en ciudades tecnológicas.</p>
+            <div class="sec-index">Problemática &nbsp;/&nbsp; Detalle &nbsp;/&nbsp; Emoción</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet compact">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Historia original &middot; 01</span>
+                    <h3>Problemática</h3>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="longform narrow">
+                    <p>En las ciudades donde se construye el futuro digital, miles de ingenieros, diseñadores y analistas viven una ironía silenciosa: están hiperconectados al mundo y profundamente desconectados de quienes los rodean. Seattle, San Francisco, Austin, las capitales de la innovación, tienen tasas de soledad entre adultos jóvenes que superan el 60% según estudios recientes.</p>
+                    <p>La problemática no es tecnológica; es humana. Es la persona que lleva seis meses en una ciudad nueva y su única interacción fuera del trabajo es con el repartidor de comida.</p>
+                </div>
+            </div>
+            <div class="folio"><span>03 &mdash; Problemática</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet compact">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Historia original &middot; 02</span>
+                    <h3>Trascendencia</h3>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="longform narrow">
+                    <p>El aislamiento social no es solo tristeza: la Organización Mundial de la Salud lo declaró una &ldquo;amenaza urgente de salud pública&rdquo; en 2023. Sus efectos son equivalentes a fumar 15 cigarrillos diarios. Afecta la productividad laboral, aumenta la rotación de personal, y en casos extremos, contribuye a crisis de salud mental.</p>
+                    <p>Nos afecta a todos los que migramos por oportunidades laborales. Deberían involucrarse las empresas (que traen a personas a estas ciudades), los urbanistas (que diseñan espacios), y las comunidades locales (que pueden integrar a los recién llegados).</p>
+                </div>
+            </div>
+            <div class="folio"><span>03 &mdash; Trascendencia</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet compact">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Historia original &middot; 03</span>
+                    <h3>Detalle</h3>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="longform narrow">
+                    <p>Marco llegó a Seattle en enero. Su empresa pagaba bien, el departamento era nuevo, la vista del lago Union era impresionante. Los primeros meses fueron emocionantes: todo era descubrimiento. Pero en abril, la novedad se agotó.</p>
+                    <p>Las llamadas con su equipo eran por Teams. El almuerzo era en su escritorio. Los vecinos del edificio desaparecían en sus departamentos a las 6pm. Intentó aplicaciones para conocer gente; tres cenas incómodas con desconocidos que nunca volvió a ver.</p>
+                    <p>Un viernes a las 11pm, mandó un mensaje al grupo de Slack de su equipo: &ldquo;¿Alguien para una cerveza?&rdquo;. Lo leyeron. Nadie contestó. No por maldad; estaban ocupados con sus propias vidas fragmentadas.</p>
+                </div>
+            </div>
+            <div class="folio"><span>03 &mdash; Detalle</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet compact">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Historia original &middot; 04</span>
+                    <h3>Emoción</h3>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="longform narrow">
+                    <p>Lo que rompió el ciclo de Marco no fue una aplicación ni una política corporativa. Fue un acto minúsculo: un compañero notó que siempre almorzaba solo y un día, sin preguntar, se sentó a su lado con su bandeja. &ldquo;Qué, ¿te mudaste hace poco, verdad?&rdquo;</p>
+                    <p>De ahí salió un grupo de corredores de los sábados. Cuatro personas al principio, doce ahora. Ninguno es su mejor amigo de la infancia, pero todos entienden lo que se siente llegar a una ciudad donde nadie te conoce.</p>
+                    <p>La soledad en las ciudades tech no se resuelve con tecnología. Se resuelve con algo que la tecnología no puede escalar: presencia. El gesto deliberado de sentarse al lado de alguien y preguntar cómo está. No hay algoritmo para eso, y quizá eso es exactamente lo que lo hace valioso.</p>
+                </div>
+            </div>
+            <div class="folio"><span>03 &mdash; Emoción</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+</section>
+
+<!-- ======================= SECCIÓN 4: RECURSOS VISUALES ======================= -->
+<section>
+    <section data-background-color="#16140F" class="has-dark">
+        <div class="divider">
+            <span class="edge"></span>
+            <span class="big-num">04</span>
+            <div class="sec-kicker">Sección Cuatro</div>
+            <h2>Recursos visuales</h2>
+            <p class="sec-sub">Dos piezas gráficas diseñadas para complementar la historia.</p>
+            <div class="sec-index">Infografía &nbsp;/&nbsp; Diagrama narrativo</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Recurso visual 1</span>
+                    <h3>La paradoja de la hiperconexión</h3>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="viz-frame fragment fade-up" style="padding:0; border:none; background:none; box-shadow:none;">
+                    <img src="img/recurso1.png" alt="Infografía: La paradoja de la hiperconexión" style="width:100%; border-radius:4px; box-shadow: var(--shadow-md);">
+                </div>
+            </div>
+            <div class="folio"><span>04 &mdash; Recurso visual 1</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Recurso visual 2</span>
+                    <h3>El ciclo del aislamiento y la reconexión</h3>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="viz-frame fragment fade-up" style="padding:0; border:none; background:none; box-shadow:none;">
+                    <img src="img/recurso2.png" alt="Diagrama: El ciclo del aislamiento y la reconexión" style="width:100%; border-radius:4px; box-shadow: var(--shadow-md);">
+                </div>
+            </div>
+            <div class="folio"><span>04 &mdash; Recurso visual 2</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+</section>
+
+<!-- ======================= SECCIÓN 5: REFLEXIÓN ======================= -->
+<section>
+    <section data-background-color="#16140F" class="has-dark">
+        <div class="divider">
+            <span class="edge"></span>
+            <span class="big-num">05</span>
+            <div class="sec-kicker">Sección Cinco</div>
+            <h2>Reflexión final</h2>
+            <p class="sec-sub">Las historias no son decoración: son infraestructura de reputación.</p>
+            <div class="sec-index">Síntesis &nbsp;/&nbsp; Aprendizajes</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet compact">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Reflexión &middot; 01</span>
+                    <h3>Las historias como infraestructura</h3>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="longform narrow">
+                    <p>Esta investigación revela un patrón claro: las historias no son decoración para marcas; son infraestructura de reputación. Apple sobrevive reviews devastadores porque ha invertido décadas en construir una narrativa tan sólida que funciona como escudo. Xiaomi, con un producto competitivo, queda expuesta a cada crítica porque no ha construido ese capital narrativo.</p>
+                    <p>Los comentarios de consumidores que realmente influyen comparten una estructura: son específicos (nombres, fechas, situaciones concretas), son emocionales sin ser histriónicos, y conectan la experiencia individual con algo universal. Un review que dice &ldquo;el teléfono es malo&rdquo; no mueve a nadie; uno que dice &ldquo;mi madre intentó videollamarme desde el hospital y la pantalla se congeló&rdquo; cambia decisiones de compra.</p>
+                </div>
+            </div>
+            <div class="folio"><span>05 &mdash; Reflexión</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet compact">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Reflexión &middot; 02</span>
+                    <h3>Los datos informan, las historias transforman</h3>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="longform narrow">
+                    <p>Las historias de marca y las historias de consumidores operan en la misma frecuencia emocional: ambas traducen hechos en significado. La diferencia es que las marcas controlan su narrativa mientras que los consumidores la verifican o la desmienten con experiencia vivida.</p>
+                    <p>Las decisiones de compra, de lealtad, e incluso de identidad personal se construyen sobre estas narrativas. No elegimos productos; elegimos las historias que queremos contar sobre nosotros mismos. Apple lo entiende y lo monetiza. Xiaomi aún está aprendiendo que el mejor precio del mercado no basta si no hay una historia que le dé significado a la compra.</p>
+                    <p>La lección para cualquier comunicador: los datos informan, pero las historias transforman. Y las historias más poderosas no son las que cuenta la marca, sino las que los consumidores eligen repetir.</p>
+                </div>
+            </div>
+            <div class="folio"><span>05 &mdash; Reflexión</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+</section>
+
+<!-- ======================= SECCIÓN 6: REFERENCIAS ======================= -->
+<section>
+    <section data-background-color="#16140F" class="has-dark">
+        <div class="divider">
+            <span class="edge"></span>
+            <span class="big-num">06</span>
+            <div class="sec-kicker">Sección Seis</div>
+            <h2>Referencias</h2>
+            <p class="sec-sub">Fuentes consultadas en formato APA.</p>
+            <div class="sec-index">Bibliografía</div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Referencias &middot; 1 de 2</span>
+                    <h3>Fuentes consultadas</h3>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="ref-list">
+                    <p>ConsumerAffairs. (2026). <em>Apple Store reviews</em>. https://www.consumeraffairs.com/computers/apple-store.html</p>
+                    <p>Gottschall, J. (2013). <em>The storytelling animal: How stories make us human</em>. Mariner Books.</p>
+                    <p>Heath, C., y Heath, D. (2007). <em>Made to stick: Why some ideas survive and others die</em>. Random House.</p>
+                    <p>Jia, W. (2026, febrero). How Xiaomi is winning the European smartphone market. <em>Forbes</em>. https://www.forbes.com/sites/ewanspence/2026/02/16/how-xiaomi-is-winning-european-smartphone-market/</p>
+                    <p>Retently. (2024). Apple's customer loyalty and high NPS. <em>Retently Blog</em>. https://www.retently.com/blog/apple-nps/</p>
+                    <p>Salva, D. (2025, diciembre). Beyond the byte: A deep dive into Apple's masterful storytelling. <em>Dan Salva</em>.</p>
+                </div>
+            </div>
+            <div class="folio"><span>06 &mdash; Referencias (1/2)</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+
+    <section>
+        <div class="sheet">
+            <div class="sheet-body">
+                <div class="stack-head">
+                    <span class="kicker">Referencias &middot; 2 de 2</span>
+                    <h3>Fuentes consultadas</h3>
+                    <div class="accent-rule"></div>
+                </div>
+                <div class="ref-list">
+                    <p>SiteJabber. (2026). <em>Apple reviews</em>. https://www.sitejabber.com/reviews/apple.com</p>
+                    <p>SiteJabber. (2026). <em>Xiaomi reviews</em>. https://www.sitejabber.com/reviews/mi.com</p>
+                    <p>Six Colors. (2026, febrero). Apple Report Card 2026. <em>Six Colors</em>. https://sixcolors.com/post/2026/02/apple-report-card-2026/</p>
+                    <p>TEDx Talks. (2017, 16 de marzo). The magical science of storytelling | David JP Phillips | TEDxStockholm [Video]. YouTube. https://www.youtube.com/watch?v=Nj-hdQMa3uA</p>
+                    <p>World Health Organization. (2023). <em>Social isolation and loneliness</em>. WHO Commission on Social Connection.</p>
+                    <p>Xiaomi. (2026). ET BrandEquity: Xiaomi bets on trust, local roots and an ecosystem future. <em>Economic Times</em>. https://brandequity.economictimes.indiatimes.com/</p>
+                </div>
+            </div>
+            <div class="folio"><span>06 &mdash; Referencias (2/2)</span><span><span class="dot">&bull;</span>&nbsp; UVM</span></div>
+        </div>
+    </section>
+</section>
+
+<!-- ======================= CIERRE ======================= -->
+<section data-background-color="#16140F" class="has-dark">
+    <div class="closing">
+        <span class="edge"></span>
+        <div class="c-kicker">Fin de la presentación</div>
+        <h1>Gracias por<br>su <span class="em">atención</span>.</h1>
+        <div class="c-foot">
+            <div class="c-meta">
+                <span class="lbl">Equipo 4 &middot; Solucionar para Cambiar</span>
+                Diego Armando Beltrán Arreola &middot; Luis Daniel Rosales Lozano &middot; Enrique Varela Campuzano<br>
+                Naomi Giselle Silva Morán &middot; Jorge Ignacio Valenzuela Padrón &middot; Nelson Andrés Gutiérrez Morán
+            </div>
+            <div class="c-logo">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 30" xml:space="preserve" aria-label="UVM">
+                    <path d="M97.5,3.13l0,23.73h-5.94l0-14.69l-9.62,10.97l-9.62-10.97l0,14.69h-5.88l0-23.73h0.3l0,0c0.01,0,0.02,0,0.03,0c2.68,0,4.99,0.82,6.05,2v0l9.12,10.14l9.2-10.17c1.07-1.16,3.36-1.97,6.01-1.97c0,0,0.02,0,0.03,0l0,0H97.5z M63.27,3.13L63.27,3.13c0,0-0.02,0-0.04,0c-2.97,0-5.53,0.81-6.72,1.98l-9.31,14.1L37.88,5.1c-1.19-1.16-3.75-1.97-6.72-1.97c-0.01,0-0.02,0-0.02,0l-0.01,0h-1.88l15.86,23.73l4.17,0L65.2,3.13H63.27z M22.14,5.08l0,12.56c0,1.18,0,2.8-1.69,3.85c-1.24,0.74-3.21,0.92-5.46,0.92c-1.8,0-3.77-0.09-5.01-0.88c-1.46-0.92-1.52-2.23-1.52-3.46l0-13.01C7.41,3.93,5.14,3.14,2.5,3.13l0,15.43c0,1.92,0.4,4.24,2.59,5.99c2.65,2.1,6.92,2.32,10.02,2.32c3.43,0,7.43-0.35,9.96-2.05c2.65-1.75,2.99-3.98,2.99-6.26l0-15.43C25.43,3.15,23.18,3.95,22.14,5.08"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        hash: true,
+        slideNumber: 'c/t',
+        transition: 'fade',
+        transitionSpeed: 'default',
+        backgroundTransition: 'fade',
+        controls: true,
+        progress: true,
+        center: false,
+        touch: true,
+        loop: false,
+        fragments: true,
+        embedded: false,
+        help: true,
+        showNotes: false,
+        autoPlayMedia: null,
+        width: '100%',
+        height: '100%',
+        margin: 0,
+        minScale: 1,
+        maxScale: 1,
+        disableLayout: true,
+    });
+</script>
+</body>
+</html>
