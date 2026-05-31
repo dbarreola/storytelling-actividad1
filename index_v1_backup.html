@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1 - Storytelling | Diego Beltran</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+    <style>
+        :root {
+            --apple-gray: #1d1d1f;
+            --xiaomi-orange: #ff6900;
+            --accent-blue: #0071e3;
+            --bg-light: #fbfbfd;
+        }
+        .reveal {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 28px;
+            color: var(--apple-gray);
+        }
+        .reveal h1, .reveal h2, .reveal h3 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--apple-gray);
+        }
+        .reveal h1 { font-size: 2.2em; }
+        .reveal h2 { font-size: 1.6em; }
+        .reveal h3 { font-size: 1.2em; color: #555; }
+        .reveal .slide-number { font-size: 14px; }
+        .brand-apple { color: var(--apple-gray); }
+        .brand-xiaomi { color: var(--xiaomi-orange); }
+        .accent { color: var(--accent-blue); }
+        .quote-box {
+            background: #f5f5f7;
+            border-left: 4px solid var(--accent-blue);
+            padding: 20px 25px;
+            margin: 20px auto;
+            max-width: 85%;
+            text-align: left;
+            font-style: italic;
+            border-radius: 4px;
+        }
+        .quote-box.negative {
+            border-left-color: #d63031;
+            background: #fff5f5;
+        }
+        .quote-box.positive {
+            border-left-color: #00b894;
+            background: #f0fff4;
+        }
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            text-align: left;
+            align-items: start;
+        }
+        .card {
+            background: #f9f9fb;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 600;
+            margin: 3px;
+        }
+        .tag-high { background: #d4edda; color: #155724; }
+        .tag-low { background: #f8d7da; color: #721c24; }
+        .tag-partial { background: #fff3cd; color: #856404; }
+        .story-section {
+            text-align: left;
+            max-width: 80%;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+        .story-section p {
+            margin-bottom: 15px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8em;
+        }
+        table th {
+            background: var(--apple-gray);
+            color: white;
+            padding: 10px 15px;
+            text-align: left;
+        }
+        table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        table tr:nth-child(even) { background: #f9f9fb; }
+        .portada {
+            text-align: center;
+        }
+        .portada h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .portada .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .portada .meta {
+            font-size: 0.85em;
+            color: #888;
+            line-height: 1.8;
+        }
+        .emoji-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+        .ref-list {
+            text-align: left;
+            font-size: 0.65em;
+            line-height: 1.8;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+        ul { text-align: left; }
+        li { margin-bottom: 8px; }
+        .fragment.fade-in-then-semi-out.visible:not(.current-fragment) {
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- PORTADA -->
+<section>
+    <div class="portada">
+        <h1>Storytelling</h1>
+        <p class="subtitle">El poder de las narrativas de marca y las historias de consumidores</p>
+        <br>
+        <p class="meta">
+            <strong>Diego Beltran Larrazabal</strong><br>
+            Actividad 1 - Unidad 1<br>
+            SGTI0103A-531XO04B2602<br>
+            Fecha de entrega: 1 de junio de 2026
+        </p>
+    </div>
+</section>
+
+<!-- INDICE -->
+<section>
+    <h2>Contenido</h2>
+    <ol>
+        <li class="fragment">Exploracion de marcas: Apple y Xiaomi</li>
+        <li class="fragment">Analisis de narrativas vs. reviews</li>
+        <li class="fragment">Historia original: storytelling aplicado</li>
+        <li class="fragment">Recursos visuales</li>
+        <li class="fragment">Reflexion final</li>
+        <li class="fragment">Referencias</li>
+    </ol>
+</section>
+
+<!-- SECCION 1: MARCAS -->
+<section>
+    <section>
+        <h2>1. Exploracion de Marcas</h2>
+        <div class="two-col">
+            <div class="card">
+                <h3 class="brand-apple">Apple</h3>
+                <p><strong>Marca favorita</strong></p>
+                <p>Empresa de tecnologia fundada en 1976. Reconocida por su diseno, ecosistema integrado y narrativa premium.</p>
+            </div>
+            <div class="card">
+                <h3 class="brand-xiaomi">Xiaomi</h3>
+                <p><strong>Marca desconocida</strong></p>
+                <p>Empresa china fundada en 2010. Se posiciona como democratizadora de la tecnologia con precios accesibles.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="brand-apple">Narrativa de Apple</h3>
+        <p>Apple construye su marca sobre estos pilares:</p>
+        <ul>
+            <li class="fragment"><strong>"Think Different"</strong> - El usuario como visionario e inconformista</li>
+            <li class="fragment"><strong>Empoderamiento</strong> - "Shot on iPhone": no presumir la camara, mostrar lo que TU creas</li>
+            <li class="fragment"><strong>Minimalismo</strong> - Espacio en blanco, simplicidad; el vacio comunica premium</li>
+            <li class="fragment"><strong>Ecosistema exclusivo</strong> - Un club cerrado que refuerza la lealtad tribal</li>
+            <li class="fragment"><strong>Experiencia, no producto</strong> - Tiendas como "plazas publicas", keynotes como teatro</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="brand-xiaomi">Narrativa de Xiaomi</h3>
+        <p>Xiaomi posiciona su marca con:</p>
+        <ul>
+            <li class="fragment"><strong>"Innovacion para todos"</strong> - Especificaciones premium sin sobreprecio</li>
+            <li class="fragment"><strong>"Human x Car x Home"</strong> - Ecosistema conectado: hogar, movilidad, vida personal</li>
+            <li class="fragment"><strong>"Honest pricing"</strong> - Precio transparente y justo, no solo el mas bajo</li>
+            <li class="fragment"><strong>Comunidad co-creadora</strong> - Foros, Mi Fan Festival, betas colaborativas</li>
+            <li class="fragment"><strong>Challenger innovador</strong> - "Vinimos para quedarnos" (Jia Wei, Forbes, 2026)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="brand-apple">Reviews de Apple - Lo positivo</h3>
+        <div class="quote-box positive">
+            "El hardware es excepcional. El chip Apple Silicon cambio las reglas del juego en rendimiento y eficiencia energetica."
+        </div>
+        <ul>
+            <li>NPS: 72/100 (sector tecnologico)</li>
+            <li>J.D. Power 2023: primer lugar en satisfaccion movil (866/1000)</li>
+            <li>65% de usuarios de iPhone poseen al menos otro producto Apple</li>
+            <li>Fiabilidad de hardware: 4.5/5 (Six Colors Report Card, 2026)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="brand-apple">Reviews de Apple - Lo negativo</h3>
+        <div class="quote-box negative">
+            "Apple Support is not helpful to their customers after you buy the product." - Steven, WA, mayo 2026 (ConsumerAffairs)
+        </div>
+        <div class="quote-box negative">
+            "If you ever switch to Android, Apple will lock you out of all your accounts." - Kathy G., OR, oct. 2024 (Sitejabber)
+        </div>
+        <ul>
+            <li>ConsumerAffairs: 1.3/5 estrellas (85% resenas de 1 estrella)</li>
+            <li>Sitejabber: 2.6/5 (2,092 resenas)</li>
+            <li>Quejas principales: servicio post-venta, ecosistema cerrado, obsolescencia percibida</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="brand-xiaomi">Reviews de Xiaomi - Lo positivo</h3>
+        <div class="quote-box positive">
+            "Es una de las companias tech mas versatiles del mundo. Todo lo que he usado ha sido de buena calidad."
+        </div>
+        <ul>
+            <li>Relacion calidad-precio excepcional</li>
+            <li>Ecosistema amplio: smartphones, aspiradoras, TVs, lamparas</li>
+            <li>Bateria de larga duracion</li>
+            <li>Tercer lugar en ventas en Europa (tras Apple y Samsung)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3 class="brand-xiaomi">Reviews de Xiaomi - Lo negativo</h3>
+        <div class="quote-box negative">
+            "La PEOR marca de smartphones... NO DESPERDICIEN SU DINERO en Xiaomi!" - Usuario verificado, SiteJabber
+        </div>
+        <div class="quote-box negative">
+            "Es una estafa. Tu producto Mi se vuelve obsoleto si necesita reparacion. Falta de repuestos."
+        </div>
+        <ul>
+            <li>SiteJabber: 3.1/5 (polarizado: 44% dan 5 estrellas, 41% dan 1 estrella)</li>
+            <li>Servicio post-venta deficiente (tiempos de 15+ dias)</li>
+            <li>Problemas de software (actualizaciones inestables)</li>
+            <li>Calidad inconsistente entre modelos</li>
+        </ul>
+    </section>
+</section>
+
+<!-- SECCION 2: ANALISIS -->
+<section>
+    <section>
+        <h2>2. Analisis de Narrativas</h2>
+        <h3>Las historias vs. la realidad</h3>
+    </section>
+
+    <section>
+        <h3 class="brand-apple">Apple: Alineacion narrativa-realidad</h3>
+        <table>
+            <tr><th>Narrativa</th><th>Realidad</th><th>Alineacion</th></tr>
+            <tr><td>Hardware premium</td><td>Universalmente elogiado</td><td><span class="tag tag-high">ALTA</span></td></tr>
+            <tr><td>Innovacion constante</td><td>Reconocida pero con tropiezos</td><td><span class="tag tag-partial">PARCIAL</span></td></tr>
+            <tr><td>Experiencia en tienda</td><td>85% resenas negativas sobre servicio</td><td><span class="tag tag-low">BAJA</span></td></tr>
+            <tr><td>"Just works"</td><td>macOS 2026: 2.7/5 en calidad</td><td><span class="tag tag-low">BAJA</span></td></tr>
+            <tr><td>Ecosistema empoderador</td><td>Percibido como "jaula dorada"</td><td><span class="tag tag-partial">DIVIDIDA</span></td></tr>
+        </table>
+    </section>
+
+    <section>
+        <h3 class="brand-apple">Marca favorita: reflexion</h3>
+        <div class="story-section">
+            <p>Los reviews de Apple revelan una paradoja: en encuestas estructuradas (J.D. Power, NPS) la satisfaccion es altisima, pero en plataformas abiertas (Trustpilot, ConsumerAffairs) predominan las quejas.</p>
+            <p>La narrativa de hardware premium y diseno <strong>si se alinea</strong> con la experiencia real. Donde la historia se quiebra es en el servicio post-venta y la promesa de "el cliente primero". Los consumidores que aman Apple lo hacen por los mismos motivos que la marca promociona: creatividad, diseno, ecosistema. Los que la critican senalan la desconexion entre la promesa de cuidado y la frialdad del soporte real.</p>
+            <p>Esto <strong>refuerza mi preferencia</strong>, pero con matices: admiro la excelencia en producto y narrativa, reconociendo que su debilidad esta donde la marca deja de contar historias y empieza a prestar servicio.</p>
+        </div>
+    </section>
+
+    <section>
+        <h3 class="brand-xiaomi">Marca desconocida: percepcion</h3>
+        <div class="story-section">
+            <p>Antes de investigar, percibia a Xiaomi como "la alternativa china barata". Despues de leer resenas y analizar su narrativa, mi percepcion cambio: es una empresa ambiciosa en plena transicion de marca economica a ecosistema premium (vehiculo electrico SU7, colaboracion con Leica).</p>
+            <p>El problema: su historia no ha alcanzado a su producto. Los consumidores reconocen el valor pero no sienten conexion emocional. Xiaomi habla de "innovacion para todos" pero sus reviews muestran que cuando algo falla, el cliente queda solo.</p>
+            <p><strong>Historias que conectarian mejor:</strong> testimoniales reales de como su tecnologia accesible cambio la vida de alguien concreto; narrativas de su servicio post-venta mejorando (transparencia sobre fallos y soluciones); mostrar la comunidad de Mi Fans como protagonistas, no como publico.</p>
+        </div>
+    </section>
+
+    <section>
+        <h3>Papel de las historias en la reputacion</h3>
+        <div class="two-col">
+            <div class="card">
+                <h3 class="brand-apple">Apple</h3>
+                <p>Su storytelling es tan fuerte que sobrevive a reviews negativos. La tribu ya esta convencida; los detractores son percibidos como excepciones. La narrativa actua como <strong>escudo reputacional</strong>.</p>
+            </div>
+            <div class="card">
+                <h3 class="brand-xiaomi">Xiaomi</h3>
+                <p>Sin una narrativa emocional fuerte, cada review negativo pesa mas. No hay "tribu" que defienda la marca. La ausencia de storytelling deja la reputacion <strong>vulnerable al ruido</strong>.</p>
+            </div>
+        </div>
+    </section>
+</section>
+
+<!-- SECCION 3: HISTORIA ORIGINAL -->
+<section>
+    <section>
+        <h2>3. Historia Original</h2>
+        <h3>El ping que nadie contesto</h3>
+        <p><em>Una historia sobre el aislamiento social en ciudades tecnologicas</em></p>
+    </section>
+
+    <section>
+        <h3>Problematica</h3>
+        <div class="story-section">
+            <p>En las ciudades donde se construye el futuro digital, miles de ingenieros, disenadores y analistas viven una ironia silenciosa: estan hiperconectados al mundo y profundamente desconectados de quienes los rodean. Seattle, San Francisco, Austin, las capitales de la innovacion, tienen tasas de soledad entre adultos jovenes que superan el 60% segun estudios recientes.</p>
+            <p>La problematica no es tecnologica; es humana. Es la persona que lleva seis meses en una ciudad nueva y su unica interaccion fuera del trabajo es con el repartidor de comida.</p>
+        </div>
+    </section>
+
+    <section>
+        <h3>Trascendencia</h3>
+        <div class="story-section">
+            <p>El aislamiento social no es solo tristeza: la Organizacion Mundial de la Salud lo declaro una "amenaza urgente de salud publica" en 2023. Sus efectos son equivalentes a fumar 15 cigarrillos diarios. Afecta la productividad laboral, aumenta la rotacion de personal, y en casos extremos, contribuye a crisis de salud mental.</p>
+            <p>Nos afecta a todos los que migramos por oportunidades laborales. Deberian involucrarse las empresas (que traen a personas a estas ciudades), los urbanistas (que disenan espacios), y las comunidades locales (que pueden integrar a los recien llegados).</p>
+        </div>
+    </section>
+
+    <section>
+        <h3>Detalle</h3>
+        <div class="story-section">
+            <p>Marco llego a Seattle en enero. Su empresa pagaba bien, el departamento era nuevo, la vista del lago Union era impresionante. Los primeros meses fueron emocionantes: todo era descubrimiento. Pero en abril, la novedad se agoto.</p>
+            <p>Las llamadas con su equipo eran por Teams. El almuerzo era en su escritorio. Los vecinos del edificio desaparecian en sus departamentos a las 6pm. Intento aplicaciones para conocer gente; tres cenas incomodas con desconocidos que nunca volvio a ver.</p>
+            <p>Un viernes a las 11pm, mando un mensaje al grupo de Slack de su equipo: "Alguien para una cerveza?". Lo leyeron. Nadie contesto. No por maldad; estaban ocupados con sus propias vidas fragmentadas.</p>
+        </div>
+    </section>
+
+    <section>
+        <h3>Emocion</h3>
+        <div class="story-section">
+            <p>Lo que rompio el ciclo de Marco no fue una aplicacion ni una politica corporativa. Fue un acto minusculo: un companero noto que siempre almorzaba solo y un dia, sin preguntar, se sento a su lado con su bandeja. "Que, te mudaste hace poco, verdad?"</p>
+            <p>De ahi salio un grupo de corredores de los sabados. Cuatro personas al principio, doce ahora. Ninguno es su mejor amigo de la infancia, pero todos entienden lo que se siente llegar a una ciudad donde nadie te conoce.</p>
+            <p>La soledad en las ciudades tech no se resuelve con tecnologia. Se resuelve con algo que la tecnologia no puede escalar: presencia. El gesto deliberado de sentarse al lado de alguien y preguntar como esta. No hay algoritmo para eso, y quiza eso es exactamente lo que lo hace valioso.</p>
+        </div>
+    </section>
+</section>
+
+<!-- SECCION 4: RECURSOS VISUALES -->
+<section>
+    <section>
+        <h2>4. Recursos Visuales</h2>
+        <p>Dos piezas graficas disenadas para complementar la historia</p>
+    </section>
+
+    <section>
+        <h3>Recurso Visual 1</h3>
+        <div class="card" style="text-align:center; padding: 40px;">
+            <p style="font-size:0.8em; color:#666; margin-bottom:20px;">Infografia: "La paradoja de la hiperconexion"</p>
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; padding: 40px; color: white; max-width: 600px; margin: 0 auto;">
+                <p style="font-size: 2em; font-weight: bold; margin-bottom: 10px;">5,000+</p>
+                <p style="font-size: 0.9em; opacity: 0.9;">conexiones digitales promedio</p>
+                <hr style="border: 1px solid rgba(255,255,255,0.3); margin: 20px 0;">
+                <p style="font-size: 2em; font-weight: bold; margin-bottom: 10px;">3.2</p>
+                <p style="font-size: 0.9em; opacity: 0.9;">amigos cercanos promedio en adultos relocalizados</p>
+                <hr style="border: 1px solid rgba(255,255,255,0.3); margin: 20px 0;">
+                <p style="font-size: 2em; font-weight: bold; margin-bottom: 10px;">60%</p>
+                <p style="font-size: 0.9em; opacity: 0.9;">de jovenes profesionales tech reportan soledad frecuente</p>
+            </div>
+            <p style="font-size:0.7em; color:#999; margin-top:15px;">[Diseno final en Canva/Adobe Express - placeholder conceptual]</p>
+        </div>
+    </section>
+
+    <section>
+        <h3>Recurso Visual 2</h3>
+        <div class="card" style="text-align:center; padding: 40px;">
+            <p style="font-size:0.8em; color:#666; margin-bottom:20px;">Diagrama narrativo: "El ciclo del aislamiento y la reconexion"</p>
+            <div style="background: #f8f9fa; border-radius: 16px; padding: 30px; max-width: 600px; margin: 0 auto;">
+                <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 15px;">
+                    <div style="background: #e74c3c; color: white; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 0.7em; text-align: center; padding: 10px;">Mudanza<br>nueva ciudad</div>
+                    <div style="font-size: 1.5em;">&#8594;</div>
+                    <div style="background: #f39c12; color: white; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 0.7em; text-align: center; padding: 10px;">Rutina<br>aislada</div>
+                    <div style="font-size: 1.5em;">&#8594;</div>
+                    <div style="background: #9b59b6; color: white; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 0.7em; text-align: center; padding: 10px;">Gesto<br>humano</div>
+                    <div style="font-size: 1.5em;">&#8594;</div>
+                    <div style="background: #27ae60; color: white; border-radius: 50%; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center; font-size: 0.7em; text-align: center; padding: 10px;">Comunidad<br>emergente</div>
+                </div>
+            </div>
+            <p style="font-size:0.7em; color:#999; margin-top:15px;">[Diseno final en Canva/Adobe Express - placeholder conceptual]</p>
+        </div>
+    </section>
+
+    <section>
+        <h3>Nota sobre los recursos visuales</h3>
+        <div class="story-section">
+            <p>Los placeholders anteriores representan los conceptos de las 2 piezas graficas que seran disenados en Canva o Adobe Express:</p>
+            <ul>
+                <li><strong>Infografia "La paradoja de la hiperconexion"</strong>: datos estadisticos con diseno impactante que contextualiza la magnitud del problema</li>
+                <li><strong>Diagrama "El ciclo del aislamiento y la reconexion"</strong>: representacion visual del arco narrativo de la historia, desde la llegada hasta la comunidad</li>
+            </ul>
+            <p>Ambos recursos complementan la historia al proveer contexto cuantitativo (infografia) y estructura narrativa visual (diagrama).</p>
+        </div>
+    </section>
+</section>
+
+<!-- SECCION 5: REFLEXION -->
+<section>
+    <section>
+        <h2>5. Reflexion Final</h2>
+    </section>
+
+    <section>
+        <div class="story-section">
+            <p>Esta investigacion revela un patron claro: las historias no son decoracion para marcas; son infraestructura de reputacion. Apple sobrevive reviews devastadores porque ha invertido decadas en construir una narrativa tan solida que funciona como escudo. Xiaomi, con un producto competitivo, queda expuesta a cada critica porque no ha construido ese capital narrativo.</p>
+            <p>Los comentarios de consumidores que realmente influyen comparten una estructura: son especificos (nombres, fechas, situaciones concretas), son emocionales sin ser histrionicos, y conectan la experiencia individual con algo universal. Un review que dice "el telefono es malo" no mueve a nadie; uno que dice "mi madre intento videollamarme desde el hospital y la pantalla se congelo" cambia decisiones de compra.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="story-section">
+            <p>Las historias de marca y las historias de consumidores operan en la misma frecuencia emocional: ambas traducen hechos en significado. La diferencia es que las marcas controlan su narrativa mientras que los consumidores la verifican o la desmienten con experiencia vivida.</p>
+            <p>Las decisiones de compra, de lealtad, e incluso de identidad personal se construyen sobre estas narrativas. No elegimos productos; elegimos las historias que queremos contar sobre nosotros mismos. Apple lo entiende y lo monetiza. Xiaomi aun esta aprendiendo que el mejor precio del mercado no basta si no hay una historia que le de significado a la compra.</p>
+            <p>La leccion para cualquier comunicador: los datos informan, pero las historias transforman. Y las historias mas poderosas no son las que cuenta la marca, sino las que los consumidores eligen repetir.</p>
+        </div>
+    </section>
+</section>
+
+<!-- SECCION 6: REFERENCIAS -->
+<section>
+    <section>
+        <h2>6. Referencias</h2>
+    </section>
+
+    <section>
+        <div class="ref-list">
+            <p>ConsumerAffairs. (2026). <em>Apple Store reviews</em>. https://www.consumeraffairs.com/computers/apple-store.html</p>
+            <p>Gottschall, J. (2013). <em>The storytelling animal: How stories make us human</em>. Mariner Books.</p>
+            <p>Heath, C., y Heath, D. (2007). <em>Made to stick: Why some ideas survive and others die</em>. Random House.</p>
+            <p>Jia, W. (2026, febrero). How Xiaomi is winning the European smartphone market. <em>Forbes</em>. https://www.forbes.com/sites/ewanspence/2026/02/16/how-xiaomi-is-winning-european-smartphone-market/</p>
+            <p>Retently. (2024). Apple's customer loyalty and high NPS. <em>Retently Blog</em>. https://www.retently.com/blog/apple-nps/</p>
+            <p>Salva, D. (2025, diciembre). Beyond the byte: A deep dive into Apple's masterful storytelling. <em>Dan Salva</em>.</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="ref-list">
+            <p>SiteJabber. (2026). <em>Apple reviews</em>. https://www.sitejabber.com/reviews/apple.com</p>
+            <p>SiteJabber. (2026). <em>Xiaomi reviews</em>. https://www.sitejabber.com/reviews/mi.com</p>
+            <p>Six Colors. (2026, febrero). Apple Report Card 2026. <em>Six Colors</em>. https://sixcolors.com/post/2026/02/apple-report-card-2026/</p>
+            <p>TEDx Talks. (2017, 16 de marzo). The magical science of storytelling | David JP Phillips | TEDxStockholm [Video]. YouTube. https://www.youtube.com/watch?v=Nj-hdQMa3uA</p>
+            <p>World Health Organization. (2023). <em>Social isolation and loneliness</em>. WHO Commission on Social Connection.</p>
+            <p>Xiaomi. (2026). ET BrandEquity: Xiaomi bets on trust, local roots and an ecosystem future. <em>Economic Times</em>. https://brandequity.economictimes.indiatimes.com/</p>
+        </div>
+    </section>
+</section>
+
+<!-- CIERRE -->
+<section>
+    <div class="portada">
+        <h1>Gracias</h1>
+        <br>
+        <p class="meta">
+            Diego Beltran Larrazabal<br>
+            Actividad 1 - Storytelling<br>
+            Junio 2026
+        </p>
+    </div>
+</section>
+
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        hash: true,
+        slideNumber: 'c/t',
+        transition: 'slide',
+        transitionSpeed: 'default',
+        backgroundTransition: 'fade',
+        controls: true,
+        progress: true,
+        center: true,
+        touch: true,
+        loop: false,
+        fragments: true,
+        embedded: false,
+        help: true,
+        showNotes: false,
+        autoPlayMedia: null,
+        width: 1280,
+        height: 720,
+    });
+</script>
+</body>
+</html>
